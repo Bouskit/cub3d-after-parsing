@@ -2,11 +2,16 @@
 NAME = cub3d
 
 SRCS = srcs/main.c \
+		srcs/main_2.c \
 		srcs/utils_mlx.c \
+		srcs/utils_mlx_2.c \
+		srcs/utils_mlx_3.c \
 		srcs/raycasting.c \
+		srcs/raycasting_2.c \
 		srcs/draw.c \
 		srcs/texture.c \
 		srcs/dda.c \
+		srcs/dda_2.c \
 		srcs/utils.c \
 		srcs/parsing/parsing_color.c \
 		srcs/parsing/parsing_map.c \

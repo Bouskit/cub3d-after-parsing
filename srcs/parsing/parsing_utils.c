@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 18:18:30 by bboukach          #+#    #+#             */
-/*   Updated: 2025/06/13 23:11:46 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/14 16:03:34 by mberthol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 
-int msg_error(char *str)
+int	msg_error(char *str)
 {
-    ft_putstr_fd("Error\n", 2);
-    ft_putstr_fd(str, 2);
-    return(0);
+	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd(str, 2);
+	return (0);
 }
 
 int	count_commas(char *line)
@@ -55,11 +55,11 @@ int	check_space_or_void(char **str, int i, int j)
 {
 	if ((int)ft_strlen(str[i - 1]) < j || (int)ft_strlen(str[i + 1]) < j)
 		return (0);
-	if (str[i][j - 1] == 0 || str[i][j + 1] == 0 \
-		|| str[i - 1][j] == 0 || str[i + 1][j] == 0)
+	if (str[i][j - 1] == 0 || str[i][j + 1] == 0 || str[i - 1][j] == 0 || str[i
+		+ 1][j] == 0)
 		return (0);
-	if (str[i][j - 1] == ' ' || str[i][j + 1] == ' ' \
-		|| str[i - 1][j] == ' ' || str[i + 1][j] == ' ')
+	if (str[i][j - 1] == ' ' || str[i][j + 1] == ' ' || str[i - 1][j] == ' '
+		|| str[i + 1][j] == ' ')
 		return (0);
 	return (1);
 }

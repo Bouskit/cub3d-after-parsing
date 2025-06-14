@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_color.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 20:43:56 by bboukach          #+#    #+#             */
-/*   Updated: 2025/06/14 13:44:04 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/14 16:10:28 by mberthol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	rgb_to_int(char **line)
 {
-	return (ft_atoi(line[0]) << 16 | ft_atoi(line[1]) << 8 \
-	| ft_atoi(line[2]) | 255 << 24);
+	return (ft_atoi(line[0]) << 16 | ft_atoi(line[1]) << 8
+		| ft_atoi(line[2]) | 255 << 24);
 }
 
 void	put_colors(t_data *data, char **line_colors, int boolean)
@@ -48,17 +48,19 @@ int	check_last_color(char *str)
 
 int	parse_color2(t_data *data, int boolean, char **line_colors)
 {
-	int		color;
-	int		i;
+	int	color;
+	int	i;
 
 	i = -1;
 	while (line_colors[++i])
 	{
 		if (!str_is_number(line_colors[i]))
-            return (free_double(line_colors), msg_error("Colors must be only numbers\n"));
+			return (free_double(line_colors),
+				msg_error("Colors must be only numbers\n"));
 		color = ft_atoi(line_colors[i]);
 		if (color < 0 || color > 255)
-			return (free_double(line_colors), msg_error("Colors must contain values 0 < > 255\n"));
+			return (free_double(line_colors),
+				msg_error("Colors must contain values 0 < > 255\n"));
 	}
 	put_colors(data, line_colors, boolean);
 	return (1);
@@ -77,6 +79,7 @@ int	parse_color(t_data *data, char *line, int boolean)
 	if (len_double(line_colors) != 3)
 		return (free_double(line_colors), msg_error("Color size/n"));
 	if (check_last_color(*line_colors))
-		return (free_double(line_colors), msg_error("Invalid color (Too many values)\n"));
+		return (free_double(line_colors),
+			msg_error("Invalid color (Too many values)\n"));
 	return (parse_color2(data, boolean, line_colors));
 }

@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 16:16:31 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/13 23:09:52 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/14 16:35:57 by mberthol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-unsigned int get_texture_pixel(t_texture *texture, int x, int y)
+unsigned int	get_texture_pixel(t_texture *texture, int x, int y)
 {
-	char *dest;
-	unsigned int color;
+	char			*dest;
+	unsigned int	color;
 
 	color = 0;
-	if(!texture || !texture->addr || x < 0 || x >= texture->width || y < 0 || y >= texture->height)
+	if (!texture || !texture->addr || x < 0 || x >= texture->width || y < 0
+		|| y >= texture->height)
 		return (0x000000);
-	
 	dest = texture->addr + (y * texture->line_len + x * (texture->bpp / 8));
 	color = *(unsigned int *)dest;
 	return (color);
@@ -35,13 +35,11 @@ int	init_single_texture(t_data *data, int redirection, char *path)
 			&hauteur, &largeur);
 	if (!data->texture[redirection].img)
 		return (0);
-	
-	data->texture[redirection].addr = mlx_get_data_addr(
-		data->texture[redirection].img,
-		&data->texture[redirection].bpp,
-		&data->texture[redirection].line_len,
-		&data->texture[redirection].endian);
-	
+	data->texture[redirection].addr = mlx_get_data_addr
+		(data->texture[redirection].img,
+			&data->texture[redirection].bpp,
+			&data->texture[redirection].line_len,
+			&data->texture[redirection].endian);
 	data->texture[redirection].height = hauteur;
 	data->texture[redirection].width = largeur;
 	return (1);
@@ -49,28 +47,25 @@ int	init_single_texture(t_data *data, int redirection, char *path)
 
 int	init_texture(t_data *data)
 {
-	if(!init_single_texture(data, NORTH, data->texture_path[NORTH]))
+	if (!init_single_texture(data, NORTH, data->texture_path[NORTH]))
 		return (0);
-	
-	if(!init_single_texture(data, SUD, data->texture_path[SUD]))
+	if (!init_single_texture(data, SUD, data->texture_path[SUD]))
 		return (0);
-
-	if(!init_single_texture(data, OUEST, data->texture_path[OUEST]))
+	if (!init_single_texture(data, OUEST, data->texture_path[OUEST]))
 		return (0);
-	
-	if(!init_single_texture(data, EST, data->texture_path[EST]))
+	if (!init_single_texture(data, EST, data->texture_path[EST]))
 		return (0);
 	return (1);
 }
 
-void free_texture(t_data *data)
+void	free_texture(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 4)
-	{			
-		if(data->texture[i].img)
+	{
+		if (data->texture[i].img)
 			mlx_destroy_image(data->mlx, data->texture[i].img);
 		i++;
 	}
