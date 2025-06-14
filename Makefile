@@ -7,6 +7,7 @@ SRCS = srcs/main.c \
 		srcs/draw.c \
 		srcs/texture.c \
 		srcs/dda.c \
+		srcs/utils.c \
 		srcs/parsing/parsing_color.c \
 		srcs/parsing/parsing_map.c \
 		srcs/parsing/parsing_map2.c \
