@@ -6,7 +6,7 @@
 /*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 00:27:44 by bboukach          #+#    #+#             */
-/*   Updated: 2025/04/28 19:47:10 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/16 18:00:59 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,12 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*buffer;
 
+	if (fd == -1)
+    {
+        free(buffer);
+        buffer = NULL;
+        return (NULL);
+    }
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = readfd(fd, buffer);

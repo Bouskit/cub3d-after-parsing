@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 18:14:05 by bboukach          #+#    #+#             */
-/*   Updated: 2025/06/14 16:10:46 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/16 18:03:39 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	parsing(t_data *data, char *file)
 		return (msg_error("Cannot open the file\n"));
 	line = before_map(data, fd);
 	if (!line)
-		return (msg_error("Invalid map\n"));
+		return (0);
 	if (!count_line_map(data, fd, line))
 		return (msg_error("Invalid map\n"));
 	fd = open(file, O_RDONLY);

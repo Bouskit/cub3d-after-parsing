@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:01:26 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/14 17:01:10 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/16 18:17:49 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define WIN_HAUT 800
 
 # define PI 3.14159
-# define SPEED 3
+# define SPEED 5
 # define ROT_SPEED (PI / 100)
 
 # define FOV (60 * (PI / 180))
