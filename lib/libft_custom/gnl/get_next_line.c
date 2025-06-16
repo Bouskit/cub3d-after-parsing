@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 00:27:44 by bboukach          #+#    #+#             */
-/*   Updated: 2025/06/16 18:00:59 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/16 18:24:34 by mberthol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,11 @@ char	*get_next_line(int fd)
 	static char	*buffer;
 
 	if (fd == -1)
-    {
-        free(buffer);
-        buffer = NULL;
-        return (NULL);
-    }
+	{
+		free(buffer);
+		buffer = NULL;
+		return (NULL);
+	}
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer = readfd(fd, buffer);

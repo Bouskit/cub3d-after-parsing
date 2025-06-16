@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:01:26 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/16 18:17:49 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/16 18:25:43 by mberthol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@
 
 # define PI 3.14159
 # define SPEED 5
-# define ROT_SPEED (PI / 100)
+# define ROT_SPEED 0.0314159
+// PI / 100
 
-# define FOV (60 * (PI / 180))
+// 60 * (PI / 180)
+# define FOV 1.04719667
 # define WALL_DIST 0.25
 
 # define NORTH 0
@@ -69,11 +71,11 @@ typedef struct s_ray
 
 typedef struct s_tex_params
 {
-    int		tex_w;
-    int		tex_h;
-    double	tex_x;
-    int		texture_x;
-}	t_tex_params;
+	int			tex_w;
+	int			tex_h;
+	double		tex_x;
+	int			texture_x;
+}				t_tex_params;
 
 typedef struct s_wall
 {
@@ -159,7 +161,7 @@ void			redraw(t_data *data);
 
 void			raycast(t_data *data);
 void			draw_walls(t_data *data, t_wall wall, int i);
-int	clamp_int(int value, int low, int high);
+int				clamp_int(int value, int low, int high);
 
 // DDA
 
@@ -187,8 +189,8 @@ int				len_double(char **tab);
 
 // MAIN
 
-int	init_game(t_data *data);
-void	init_parsing(t_data *data);
+int				init_game(t_data *data);
+void			init_parsing(t_data *data);
 
 // PARSING COLOR
 void			put_colors(t_data *data, char **line_colors, int boolean);
