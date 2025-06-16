@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 16:00:02 by bboukach          #+#    #+#             */
-/*   Updated: 2025/06/14 16:02:01 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/16 21:33:07 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ void	redraw(t_data *data)
 {
 	draw_background(data);
 	raycast(data);
+	draw_minimap(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 }
