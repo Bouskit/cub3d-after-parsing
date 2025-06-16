@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 16:16:31 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/14 16:35:57 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:41:43 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	free_texture(t_data *data)
 	{
 		if (data->texture[i].img)
 			mlx_destroy_image(data->mlx, data->texture[i].img);
+		free(data->texture_path[i]);
 		i++;
 	}
 }

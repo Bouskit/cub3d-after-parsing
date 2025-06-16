@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:02:09 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/14 16:59:22 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:34:18 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int ac, char *av[])
 	(void)ac;
 	init_parsing(&data);
 	if (!parsing(&data, av[1]))
-		return (1);
+		exit_data(&data);
 	if (!init_data(&data))
 		exit_data(&data);
 	if (!init_game(&data))

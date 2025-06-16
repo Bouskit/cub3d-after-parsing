@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_mlx.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 18:16:19 by bboukach          #+#    #+#             */
-/*   Updated: 2025/06/14 16:32:06 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:48:56 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static void	free_mlx_resources(t_data *data)
 int	exit_data(t_data *data)
 {
 	free_raycasting_arrays(data);
+	free_texture(data);
 	if (!data || !data->mlx)
 		exit(EXIT_SUCCESS);
 	free_double(data->map);
