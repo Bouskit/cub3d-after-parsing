@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:56:56 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/14 16:58:05 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/16 16:09:30 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	init_game(t_data *data)
 
 void	init_parsing(t_data *data)
 {
+	ft_memset(data, 0, sizeof(t_data));
 	data->p.has_player = 0;
 	data->p.map_lines = 0;
 	data->p.pcheck = 0;
