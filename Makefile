@@ -19,6 +19,7 @@ SRCS = srcs/main.c \
         srcs/parsing/parsing_texture.c \
         srcs/parsing/parsing_utils.c \
         srcs/parsing/parsing.c \
+        srcs/minimap.c \
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g

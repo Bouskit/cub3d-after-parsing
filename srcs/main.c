@@ -6,7 +6,7 @@
 /*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:02:09 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/16 15:34:18 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/16 21:33:13 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	main(int ac, char *av[])
 	}
 	draw_background(&data);
 	raycast(&data);
+	draw_minimap(&data);
 	mlx_hook(data.win, 17, 0, (int (*)())handle_cross, &data);
 	mlx_hook(data.win, 2, 1L << 0, key_event, &data);
 	mlx_hook(data.win, 3, 1L << 1, key_release, &data);
