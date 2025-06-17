@@ -6,7 +6,7 @@
 /*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:02:09 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/17 15:13:24 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/17 21:40:27 by mberthol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	main(int ac, char *av[])
 	if (!init_game(&data))
 	{
 		printf("Erreur de init_game");
+		exit_data(&data);
 		return (1);
 	}
 	draw_background(&data);

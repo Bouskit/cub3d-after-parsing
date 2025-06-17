@@ -6,7 +6,7 @@
 /*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 15:14:59 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/17 15:30:33 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/17 23:07:17 by mberthol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	mouse_move(int x, int y, void *param)
 	(void)y;
 	center_x = WIN_LARG / 2;
 	center_y = WIN_HAUT / 2;
-	mlx_mouse_hide(data->mlx, data->win);
 	if (inital_fonction(center_x, center_y, data))
 		return (0);
 	delta_x = x - center_x;

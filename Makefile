@@ -13,6 +13,7 @@ SRCS = srcs/main.c \
        srcs/dda.c \
        srcs/dda_2.c \
        srcs/utils.c \
+	   srcs/sprite_bonus.c \
        srcs/parsing/parsing_color.c \
        srcs/parsing/parsing_map.c \
        srcs/parsing/parsing_map2.c \
