@@ -2,6 +2,7 @@ NAME = cub3d
 
 SRCS = srcs/main.c \
        srcs/main_2.c \
+	   srcs/mouse_b.c \
        srcs/utils_mlx.c \
        srcs/utils_mlx_2.c \
        srcs/utils_mlx_3.c \
