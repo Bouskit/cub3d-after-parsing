@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:01:26 by mberthol          #+#    #+#             */
 /*   Updated: 2025/06/18 23:16:45 by bboukach         ###   ########.fr       */
@@ -144,6 +144,10 @@ typedef struct s_data
 	t_parsing	p;
 }				t_data;
 
+// BONUS
+
+int				mouse_move(int x, int y, void *param);
+
 // TEXTURE
 
 int				init_texture(t_data *data);
@@ -219,7 +223,7 @@ char			*before_map(t_data *data, int fd);
 int				parse_line(t_data *data, char *line);
 int				parsing(t_data *data, char *file);
 
-//Minimap
+// Minimap
 
 void draw_minimap(t_data *data);
 void draw_miniback(t_data *data);
@@ -228,6 +232,5 @@ void draw_miniplayer(t_data *data);
 int calculate_minimap_scale(t_data *data);
 
 void init_doormap(t_data *data);
-
 
 #endif
