@@ -6,7 +6,7 @@
 /*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 16:16:31 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/16 15:41:43 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/18 21:18:56 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ int	init_texture(t_data *data)
 		return (0);
 	if (!init_single_texture(data, EST, data->texture_path[EST]))
 		return (0);
+	data->texture_path[DOOR] = ft_strdup("asset/doors.xpm");
+	if (!init_single_texture(data, DOOR, data->texture_path[DOOR]))
+		return (0);
 	return (1);
 }
 
@@ -63,7 +66,7 @@ void	free_texture(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < 4)
+	while (i < 5)
 	{
 		if (data->texture[i].img)
 			mlx_destroy_image(data->mlx, data->texture[i].img);

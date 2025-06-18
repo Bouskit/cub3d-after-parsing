@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dda_2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:45:54 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/14 16:56:27 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/18 21:12:09 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,24 +51,29 @@ static void	dda_step(t_ray *ray)
 
 static void	handle_wall_collision(t_ray *ray, t_data *data, int ray_index)
 {
-	if (data->map[ray->map_y][ray->map_x] == '1')
-	{
-		ray->hit = 1;
-		if (ray->side == 0)
-		{
-			if (ray->step_x == 1)
-				data->ray_direction[ray_index] = OUEST;
-			else
-				data->ray_direction[ray_index] = EST;
-		}
-		else
-		{
-			if (ray->step_y == 1)
-				data->ray_direction[ray_index] = SUD;
-			else
-				data->ray_direction[ray_index] = NORTH;
-		}
-	}
+    if (data->doormap[ray->map_y][ray->map_x] == '1')
+    {
+        ray->hit = 1;
+        if (data->map[ray->map_y][ray->map_x] == 'D')
+            data->ray_direction[ray_index] = DOOR;
+        else
+        {
+            if (ray->side == 0)
+            {
+                if (ray->step_x == 1)
+                    data->ray_direction[ray_index] = OUEST;
+                else
+                    data->ray_direction[ray_index] = EST;
+            }
+            else
+            {
+                if (ray->step_y == 1)
+                    data->ray_direction[ray_index] = SUD;
+                else
+                    data->ray_direction[ray_index] = NORTH;
+            }
+        }
+    }
 }
 
 void	perform_dda(t_ray *ray, t_data *data, int ray_index)

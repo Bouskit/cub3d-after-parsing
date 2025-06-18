@@ -6,7 +6,7 @@
 /*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:56:56 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/16 16:09:30 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/18 21:26:46 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	init_parsing(t_data *data)
 	data->texture_path[SUD] = NULL;
 	data->texture_path[OUEST] = NULL;
 	data->texture_path[EST] = NULL;
+	data->texture_path[DOOR] = NULL;
 	data->player.x = 0.0;
 	data->player.y = 0.0;
 	data->player.angle = 0.0;

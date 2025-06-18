@@ -6,7 +6,7 @@
 /*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:02:09 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/16 21:33:13 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/18 21:08:54 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	main(int ac, char *av[])
 		exit_data(&data);
 	if (!init_data(&data))
 		exit_data(&data);
+	init_doormap(&data);
 	if (!init_game(&data))
 	{
 		printf("Erreur de init_game");
