@@ -6,7 +6,7 @@
 /*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 21:32:36 by bboukach          #+#    #+#             */
-/*   Updated: 2025/06/16 22:47:45 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/18 22:05:02 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,22 @@ void draw_minimap(t_data *data)
     draw_miniback(data);
     draw_miniwalls(data);
     draw_miniplayer(data);
-    draw_minifov(data);
+}
+
+static void draw_miniline(t_data *data, int scale, int player_mini_x, int player_mini_y)
+{
+    int i;
+    int dx;
+    int dy;
+
+    i = 0;
+    while (i < scale * 2)
+    {
+        dx = (int)(cos(data->player.angle) * i);
+        dy = (int)(sin(data->player.angle) * i);
+        put_pixel(data, player_mini_x + dx, player_mini_y + dy, 0xFFFFFF);
+        i++;
+    }
 }
 
 void draw_miniplayer(t_data *data)
@@ -42,11 +57,12 @@ void draw_miniplayer(t_data *data)
         while (j <= player_size)
         {
             if (player_mini_x + j >= 0 && player_mini_y + i >= 0)
-                put_pixel(data, player_mini_x + j, player_mini_y + i, 0xFF0000);
+                put_pixel(data, player_mini_x + j, player_mini_y + i, 0xFFFFFF);
             j++;
         }
         i++;
     }
+    draw_miniline(data, scale, player_mini_x, player_mini_y);
 }
 
 int calculate_minimap_scale(t_data *data)
@@ -82,10 +98,42 @@ void draw_miniback(t_data *data)
         j = 0;
         while (j < actual_width)
         {
-            put_pixel(data, j, i, 0x404040);
+            put_pixel(data, j, i, 0xA90807);
             j++;
         }
         i++;
+    }
+}
+
+static unsigned int get_minimap_color(t_data *data, int map_y, int map_x)
+{
+    if (data->map[map_y][map_x] == '1')
+        return (0x000000); // Mur - noir
+    else if (data->map[map_y][map_x] == 'D')
+    {
+        if (data->doormap[map_y][map_x] == '1')
+            return (0xFF0000); // Porte fermée - rouge
+        else
+            return (0x00FF00); // Porte ouverte - vert
+    }
+    return (0); // Espace vide - pas de couleur
+}
+
+static void draw_minimap_cell(t_data *data, int j, int i, int scale, unsigned int color)
+{
+    int mini_x;
+    int mini_y;
+
+    mini_y = 0;
+    while (mini_y < scale)
+    {
+        mini_x = 0;
+        while (mini_x < scale)
+        {
+            put_pixel(data, j * scale + mini_x, i * scale + mini_y, color);
+            mini_x++;
+        }
+        mini_y++;
     }
 }
 
@@ -93,9 +141,9 @@ void draw_miniwalls(t_data *data)
 {
     int i;
     int j;
-    int mini_x;
-    int mini_y;
     int scale;
+    unsigned int color;
+    char cell_type;
 
     scale = calculate_minimap_scale(data);
 
@@ -105,55 +153,18 @@ void draw_miniwalls(t_data *data)
         j = 0;
         while (j < data->map_larg && data->map[i])
         {
-            if (j < (int)ft_strlen(data->map[i]) && data->map[i][j] == '1')
+            if (j < (int)ft_strlen(data->map[i]))
             {
-                mini_y = 0;
-                while (mini_y < scale)
+                cell_type = data->map[i][j];
+                // On dessine seulement si c'est un mur ou une porte
+                if (cell_type == '1' || cell_type == 'D')
                 {
-                    mini_x = 0;
-                    while (mini_x < scale)
-                    {
-                        put_pixel(data, j * scale + mini_x, i * scale + mini_y, 0x000000);
-                        mini_x++;
-                    }
-                    mini_y++;
+                    color = get_minimap_color(data, i, j);
+                    draw_minimap_cell(data, j, i, scale, color);
                 }
             }
             j++;
         }
         i++;
-    }
-}
-
-void draw_minifov(t_data *data)
-{
-    int scale;
-    int k;
-    int w;
-    int line_x;
-    int line_y;
-
-    scale = calculate_minimap_scale(data);
-    if (scale < 10)
-        scale = 10;
-    k = 0;
-    while (k < scale)
-    {
-        w = -2;
-        while (w <= 2)
-        {
-            line_x = (int)(data->player.x / TILE_SIZE) * scale + (int)(cos(data->player.angle) * k) + 
-                     (int)(cos(data->player.angle + PI/2) * w);
-            line_y = (int)(data->player.y / TILE_SIZE) * scale + (int)(sin(data->player.angle) * k) + 
-                     (int)(sin(data->player.angle + PI/2) * w);
-            if (line_x >= 0 && line_y >= 0 && 
-                line_x < data->map_larg * scale && 
-                line_y < data->map_haut * scale)
-            {
-                put_pixel(data, line_x, line_y, 0xFF0000);
-            }
-            w++;
-        }
-        k++;
     }
 }

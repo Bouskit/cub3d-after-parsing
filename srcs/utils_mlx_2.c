@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_mlx_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:17:56 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/14 16:35:19 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/18 21:39:37 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	key_release(int key, t_data *data)
 		data->input[KEY_UP] = 0;
 	else if (key == 65364)
 		data->input[KEY_DOWN] = 0;
+	else if (key == 'e')
+		data->input[KEY_E] = 0;
 	return (0);
 }
 
@@ -55,6 +57,8 @@ int	key_event(int key, t_data *data)
 		data->input[KEY_UP] = 1;
 	else if (key == 65364)
 		data->input[KEY_DOWN] = 1;
+	else if (key == 'e')
+		data->input[KEY_E] = 1;
 	return (0);
 }
 
@@ -86,15 +90,15 @@ int	is_walkable(t_data *data, double x, double y)
 	map_y = (int)(y / TILE_SIZE);
 	frac_x = (x / TILE_SIZE) - map_x;
 	frac_y = (y / TILE_SIZE) - map_y;
-	if (data->map[map_y][map_x] == '1')
+	if (data->doormap[map_y][map_x] == '1')
 		return (0);
-	if (frac_x > 1.0 - WALL_DIST && data->map[map_y][map_x + 1] == '1')
+	if (frac_x > 1.0 - WALL_DIST && data->doormap[map_y][map_x + 1] == '1' && map_x + 1 < data->map_larg)
 		return (0);
-	if (frac_x < WALL_DIST && data->map[map_y][map_x - 1] == '1')
+	if (frac_x < WALL_DIST && data->doormap[map_y][map_x - 1] == '1' && map_x - 1 >= 0)
 		return (0);
-	if (frac_y > 1.0 - WALL_DIST && data->map[map_y + 1][map_x] == '1')
+	if (frac_y > 1.0 - WALL_DIST && data->doormap[map_y + 1][map_x] == '1' && map_y + 1 < data->map_haut)
 		return (0);
-	if (frac_y < WALL_DIST && data->map[map_y - 1][map_x] == '1')
+	if (frac_y < WALL_DIST && data->doormap[map_y - 1][map_x] == '1' && map_y - 1 >= 0)
 		return (0);
 	return (1);
 }

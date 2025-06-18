@@ -6,7 +6,7 @@
 /*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 18:16:19 by bboukach          #+#    #+#             */
-/*   Updated: 2025/06/16 15:48:56 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/18 21:28:34 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	exit_data(t_data *data)
 	if (!data || !data->mlx)
 		exit(EXIT_SUCCESS);
 	free_double(data->map);
+	free_double(data->doormap);
 	free_mlx_resources(data);
 	exit(EXIT_SUCCESS);
 }
