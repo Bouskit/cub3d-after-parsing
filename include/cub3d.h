@@ -6,7 +6,7 @@
 /*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:01:26 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/18 23:16:45 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/17 21:28:03 by mberthol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,11 +142,15 @@ typedef struct s_data
 	int			*wall_hit_side;
 	int			*ray_direction;
 	t_parsing	p;
+	t_texture	weapon_sprite[3];
 }				t_data;
 
 // BONUS
 
 int				mouse_move(int x, int y, void *param);
+void draw_weapon_sprite(t_data *data);
+int init_weapon_sprite(t_data *data, int index, char *path);
+int		init_weapon_sprites(t_data *data);
 
 // TEXTURE
 

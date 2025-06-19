@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:56:56 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/18 21:26:46 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/17 21:32:35 by mberthol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ int	init_game(t_data *data)
 	ft_memset(data->input, 0, sizeof(data->input));
 	if (!init_texture(data))
 	{
+		free_texture(data);
+		return (0);
+	}
+	if (!init_weapon_sprites(data))
+	{
+		printf("Erreur: impossible de charger les sprites d'arme\n");
 		free_texture(data);
 		return (0);
 	}
