@@ -6,6 +6,7 @@ SRCS = srcs/main.c \
        srcs/utils_mlx.c \
        srcs/utils_mlx_2.c \
        srcs/utils_mlx_3.c \
+	   srcs/utils_mlx_4.c \
        srcs/raycasting.c \
        srcs/raycasting_2.c \
        srcs/draw.c \
@@ -14,6 +15,7 @@ SRCS = srcs/main.c \
        srcs/dda_2.c \
        srcs/utils.c \
 	   srcs/sprite_bonus.c \
+	   srcs/sprite_bonus_2.c \
        srcs/parsing/parsing_color.c \
        srcs/parsing/parsing_map.c \
        srcs/parsing/parsing_map2.c \
@@ -21,6 +23,8 @@ SRCS = srcs/main.c \
        srcs/parsing/parsing_utils.c \
        srcs/parsing/parsing.c \
        srcs/minimap.c \
+	   srcs/minimap_2.c \
+	   srcs/minimap_3.c
 
 OBJ_DIR = obj
 OBJS = $(SRCS:.c=.o)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_mlx_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:17:56 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/18 21:39:37 by bboukach         ###   ########.fr       */
+/*   Updated: 2025/06/19 17:37:31 by mberthol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,17 @@ int	is_walkable(t_data *data, double x, double y)
 	frac_y = (y / TILE_SIZE) - map_y;
 	if (data->doormap[map_y][map_x] == '1')
 		return (0);
-	if (frac_x > 1.0 - WALL_DIST && data->doormap[map_y][map_x + 1] == '1' && map_x + 1 < data->map_larg)
+	if (frac_x > 1.0 - WALL_DIST && data->doormap[map_y][map_x + 1]
+			== '1' && map_x + 1 < data->map_larg)
 		return (0);
-	if (frac_x < WALL_DIST && data->doormap[map_y][map_x - 1] == '1' && map_x - 1 >= 0)
+	if (frac_x < WALL_DIST && data->doormap[map_y][map_x - 1]
+			== '1' && map_x - 1 >= 0)
 		return (0);
-	if (frac_y > 1.0 - WALL_DIST && data->doormap[map_y + 1][map_x] == '1' && map_y + 1 < data->map_haut)
+	if (frac_y > 1.0 - WALL_DIST && data->doormap[map_y + 1][map_x]
+			== '1' && map_y + 1 < data->map_haut)
 		return (0);
-	if (frac_y < WALL_DIST && data->doormap[map_y - 1][map_x] == '1' && map_y - 1 >= 0)
+	if (frac_y < WALL_DIST && data->doormap[map_y - 1][map_x]
+			== '1' && map_y - 1 >= 0)
 		return (0);
 	return (1);
 }

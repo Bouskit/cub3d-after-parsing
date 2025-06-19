@@ -6,7 +6,7 @@
 /*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 16:16:31 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/17 21:28:21 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/19 17:29:43 by mberthol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int	init_single_texture(t_data *data, int redirection, char *path)
 			&hauteur, &largeur);
 	if (!data->texture[redirection].img)
 		return (0);
-	data->texture[redirection].addr = mlx_get_data_addr
-		(data->texture[redirection].img,
+	data->texture[redirection].addr = mlx_get_data_addr(
+			data->texture[redirection].img,
 			&data->texture[redirection].bpp,
 			&data->texture[redirection].line_len,
 			&data->texture[redirection].endian);
@@ -74,13 +74,13 @@ void	free_texture(t_data *data)
 		i++;
 	}
 	i = 0;
-    while (i < 3)
-    {
-        if (data->weapon_sprite[i].img)
-        {
-            mlx_destroy_image(data->mlx, data->weapon_sprite[i].img);
-            data->weapon_sprite[i].img = NULL;
-        }
-        i++;
-    }
+	while (i < 3)
+	{
+		if (data->weapon_sprite[i].img)
+		{
+			mlx_destroy_image(data->mlx, data->weapon_sprite[i].img);
+			data->weapon_sprite[i].img = NULL;
+		}
+		i++;
+	}
 }
