@@ -67,6 +67,7 @@ int	main(int ac, char *av[])
 		exit_data(&data);
 	if (!init_data(&data))
 		exit_data(&data);
+	init_doormap(&data);
 	if (!init_game(&data))
 	{
 		printf("Erreur de init_game");

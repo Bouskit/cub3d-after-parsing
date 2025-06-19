@@ -20,7 +20,7 @@ SRCS = srcs/main.c \
        srcs/parsing/parsing_texture.c \
        srcs/parsing/parsing_utils.c \
        srcs/parsing/parsing.c \
-       srcs/minimap.c
+       srcs/minimap.c \
 
 OBJ_DIR = obj
 OBJS = $(SRCS:.c=.o)

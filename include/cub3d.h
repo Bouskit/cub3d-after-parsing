@@ -26,7 +26,7 @@
 # define WIN_HAUT 800
 
 # define PI 3.14159
-# define SPEED 5
+# define SPEED 3
 # define ROT_SPEED 0.0314159
 // PI / 100
 
@@ -38,6 +38,7 @@
 # define SUD 1
 # define OUEST 2
 # define EST 3
+# define DOOR 4
 
 enum			e_keys
 {
@@ -50,6 +51,7 @@ enum			e_keys
 	KEY_ESC,
 	KEY_UP,
 	KEY_DOWN,
+	KEY_E,
 	KEY_TOTAL
 };
 
@@ -127,22 +129,20 @@ typedef struct s_data
 	int			num_rays;
 
 	char		**map;
+	char		**doormap;
 
 	t_player	player;
 
 	int			input[KEY_TOTAL];
 
 	double		dist_to_proj_plane;
-
-	t_texture	texture[4];
-	char		*texture_path[4];
+	t_texture	texture[5];
+	char		*texture_path[5];
 	double		*wall_hit_x;
 	int			*wall_hit_side;
 	int			*ray_direction;
-
 	t_parsing	p;
 	t_texture	weapon_sprite[3];
-
 }				t_data;
 
 // BONUS
@@ -229,10 +229,12 @@ int				parsing(t_data *data, char *file);
 
 // Minimap
 
-void			draw_minimap(t_data *data);
-void			draw_miniback(t_data *data);
-void			draw_miniwalls(t_data *data);
-void			draw_miniplayer(t_data *data);
-int				calculate_minimap_scale(t_data *data);
-void			draw_minifov(t_data *data);
+void draw_minimap(t_data *data);
+void draw_miniback(t_data *data);
+void draw_miniwalls(t_data *data);
+void draw_miniplayer(t_data *data);
+int calculate_minimap_scale(t_data *data);
+
+void init_doormap(t_data *data);
+
 #endif

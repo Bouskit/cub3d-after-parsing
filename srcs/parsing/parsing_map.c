@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 22:33:04 by bboukach          #+#    #+#             */
-/*   Updated: 2025/06/14 16:16:20 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/17 21:11:15 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*parsing_map(t_data *data, char *line)
 		}
 		if (line[x] != '1' && line[x] != '0' && line[x] != 'N' && line[x] != 'S'
 			&& line[x] != 'W' && line[x] != 'E' && line[x] != '\n'
-			&& line[x] != ' ')
+			&& line[x] != ' ' && line[x] != 'D')
 			return (free(line), get_next_line(-1), NULL);
 	}
 	return (x = -1, y++, line);

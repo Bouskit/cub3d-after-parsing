@@ -46,6 +46,7 @@ void	init_parsing(t_data *data)
 	data->texture_path[SUD] = NULL;
 	data->texture_path[OUEST] = NULL;
 	data->texture_path[EST] = NULL;
+	data->texture_path[DOOR] = NULL;
 	data->player.x = 0.0;
 	data->player.y = 0.0;
 	data->player.angle = 0.0;

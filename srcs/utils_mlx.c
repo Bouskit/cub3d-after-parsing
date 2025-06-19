@@ -52,6 +52,7 @@ int	exit_data(t_data *data)
 	if (!data || !data->mlx)
 		exit(EXIT_SUCCESS);
 	free_double(data->map);
+	free_double(data->doormap);
 	free_mlx_resources(data);
 	exit(EXIT_SUCCESS);
 }
