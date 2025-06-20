@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:01:26 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/19 21:26:20 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/20 16:37:50 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define WIN_HAUT 800
 
 # define PI 3.14159
-# define SPEED 3
+//# define SPEED 3
 # define ROT_SPEED 0.0314159
 // PI / 100
 
@@ -52,6 +52,7 @@ enum				e_keys
 	KEY_UP,
 	KEY_DOWN,
 	KEY_E,
+	KEY_RUN,
 	KEY_TOTAL
 };
 
@@ -146,10 +147,9 @@ typedef struct s_data
 	char			**map;
 	char			**doormap;
 
+	double			speed;
 	t_player		player;
-
 	int				input[KEY_TOTAL];
-
 	double			dist_to_proj_plane;
 	t_texture		texture[5];
 	char			*texture_path[5];
@@ -251,7 +251,11 @@ void				draw_miniback(t_data *data);
 void				draw_miniwalls(t_data *data);
 void				draw_miniplayer(t_data *data);
 int					calculate_minimap_scale(t_data *data);
-void				handle_door(t_data *data);
 void				init_doormap(t_data *data);
+
+int					*get_key_pressed(void);
+void				handle_door(t_data *data);
+int					handle_open_door(t_data *data);
+void				handle_close_door(t_data *data, int mapx, int mapy);
 
 #endif

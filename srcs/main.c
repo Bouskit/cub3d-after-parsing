@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mberthol <mberthol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bboukach <bboukach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:02:09 by mberthol          #+#    #+#             */
-/*   Updated: 2025/06/19 17:45:33 by mberthol         ###   ########.fr       */
+/*   Updated: 2025/06/20 15:54:48 by bboukach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+int	main_loop(void *args)
+{
+	t_data	*data;
+
+	data = (t_data *)args;
+	update_events(data);
+	redraw(data);
+	return (0);
+}
 
 static void	calculate_map_dimensions(t_data *data)
 {

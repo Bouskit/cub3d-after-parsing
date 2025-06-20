@@ -1,30 +1,30 @@
 NAME = cub3d
 
-SRCS = srcs/main.c \
-       srcs/main_2.c \
-	   srcs/mouse_b.c \
-       srcs/utils_mlx.c \
-       srcs/utils_mlx_2.c \
-       srcs/utils_mlx_3.c \
-	   srcs/utils_mlx_4.c \
-       srcs/raycasting.c \
-       srcs/raycasting_2.c \
-       srcs/draw.c \
-       srcs/texture.c \
-       srcs/dda.c \
-       srcs/dda_2.c \
-       srcs/utils.c \
-	   srcs/sprite_bonus.c \
-	   srcs/sprite_bonus_2.c \
-       srcs/parsing/parsing_color.c \
-       srcs/parsing/parsing_map.c \
-       srcs/parsing/parsing_map2.c \
-       srcs/parsing/parsing_texture.c \
-       srcs/parsing/parsing_utils.c \
-       srcs/parsing/parsing.c \
-       srcs/minimap.c \
-	   srcs/minimap_2.c \
-	   srcs/minimap_3.c
+SRCS = srcs/draw.c \
+		srcs/free_exit.c \
+		srcs/init.c \
+		srcs/texture.c \
+		srcs/utils.c \
+		srcs/main.c \
+		srcs/event/event_door.c \
+		srcs/event/event_mouse.c \
+		srcs/event/event_utils.c \
+		srcs/event/handle.c \
+		srcs/minimap/minimap_player.c \
+		srcs/minimap/minimap_walls.c \
+		srcs/minimap/minimap.c \
+		srcs/parsing/parsing_color.c \
+		srcs/parsing/parsing_map.c \
+		srcs/parsing/parsing_map2.c \
+		srcs/parsing/parsing_texture.c \
+		srcs/parsing/parsing_utils.c \
+		srcs/parsing/parsing.c \
+		srcs/raycasting/dda.c \
+		srcs/raycasting/dda_2.c \
+		srcs/raycasting/raycasting.c \
+		srcs/raycasting/raycasting_2.c \
+		srcs/weapon/weapon_utils.c \
+		srcs/weapon/weapon.c \
 
 OBJ_DIR = obj
 OBJS = $(SRCS:.c=.o)
